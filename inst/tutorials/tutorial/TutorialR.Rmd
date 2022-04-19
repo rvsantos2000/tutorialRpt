@@ -10,7 +10,7 @@ library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-![](./www/RLogo.svg){width=10%}
+![](./www/rlogo.jpg){width=10%}
 
 ## Introdução {#intro}
 O **R** é uma linguagem de programação que surgiu por volta de 1993, idealizada pelos estatísticos **Ross Ihaka** e **Robert Gentleman**. No Brasil, é comum os usuários utilizarem o artigo masculino para referenciarem à linguagem R - ele é um software livre baseado na linguagem S e seu nome provém em parte dessa similaridade, em parte das iniciais dos seus criadores (Ross e Robert). Veja mais detalhes dessa história [aqui](https://en.wikipedia.org/wiki/R_(programming_language)).

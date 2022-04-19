@@ -1,13 +1,9 @@
 Package: tutorialRpt
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+Title: R Tutorial in Portuguese (Brazilian)
+Version: 0.1
+Date: 2022-04-18
+Author: Rafael de O. Valle dos Santos
+Maintainer: Rafael de O. Valle dos Santos <rvsantos2000@yahoo.com.br>
+Description: R Tutorial in Portuguese (Brazilian)
 Imports: 
     learnr
