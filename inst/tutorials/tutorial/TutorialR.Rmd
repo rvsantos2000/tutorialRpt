@@ -311,8 +311,8 @@ Podemos conferir as palavras reservadas do R executando o seguinte comando:
 ## Estruturas de dados
 O conceito de estrutura de dados especializa o conceito mais abstrato de variável/objeto. Uma **estrutura de dados** é uma coleção de dados de mesmo tipo ou não (**homogênea** x **heterogênea**), que tem um nome e pressupõe uma dada organização e forma de acesso dentro de um programa.  Exemplos de tipos **básicos** (primitivos) que podem compor uma estrutura de dados: **número** e **texto**.
 
-### Tipos básicos
-No R nós temos os seguintes tipos básicos:
+## Tipos básicos
+No R temos os seguintes tipos básicos:
 
 |Tipo|Exemplos|
 |:---|:-------|
@@ -343,10 +343,10 @@ Antes de explorarmos a criação de **coleções** a partir dos tipos básicos, 
 |`ls()`|Listar os objetos na memória (*environment*)|
 |`rm()`|Deletar um objeto da memória
 
-### Coleções homogêneas
+## Coleções homogêneas
 Entende-se por **homogênea** uma coleção cujos elementos são sempre do mesmo tipo básico.
 
-#### Vetores
+### Vetores
 Um vetor é uma coleção homogênea **1-D**. A forma mais direta de criar um vetor é através da função `c()`. Por exemplo:
 
 ```{r eval=TRUE, echo=TRUE}
@@ -433,7 +433,7 @@ Use a caixa de código abaixo para explorar a criação de vetores sem elementos
 
 ```
 
-#### Matrizes
+### Matrizes
 Matrizes são coleções homogêneas **2-D**, organizadas em linhas e colunas. Pode-se criar matrizes vazias [(`NA`)](#na) ou com um valor fixo em todas as posições: 
 
 ```{r eval=TRUE, echo=TRUE}
@@ -489,7 +489,7 @@ class(z)
 typeof(z)
 ```
 
-#### Arrays
+### Arrays
 *Arrays* (arranjos) generalizam vetores e matrizes: são coleções homogêneas **N-dimensionais**.
 
 ```{r eval=TRUE, echo=TRUE}
@@ -514,7 +514,7 @@ Use a caixa de código abaixo para explorar a criação e inspeção de *arrays*
 
 ```
 
-#### Fatores
+### Fatores
 Fatores são casos particulares de vetores onde a coleção pressupõe um número finito de valores **qualitativos**, com cada valor possível sendo chamado de **nível** (*level*). Reafirmando a vocação estatística do R, fatores são estruturas específicas para representação de variáveis **categóricas**, ordinais ou não (nominais).
 
 Como exemplo, vamos criar a variável `escolaridade` usando uma estrutura de fator com 3 níveis: "F" (Fundamental), "M" (Médio) e "S" (Superior):
@@ -537,7 +537,7 @@ dim(escolaridade)
 escolaridade[4:7]
 ```
 
-A função `factor()`, em sua forma *default*, vai associar  cada nome de categoria a um número inteiro, usando ordem **alfabética**. Assim, no caso da variável `escolaridade`, temos **"F" = 1**, **"M" = 2** e **"S" = 3**. Como quase sempre no R, se o programador desejar, é possível configurar a função para que ela mude seu comportamento padrão:
+A função `factor()`, em sua forma *default*, vai associar  cada nome de categoria a um número inteiro, usando ordem **alfabética**. Assim, no caso da variável `escolaridade`, temos "F" = 1, "M" = 2 e "S" = 3. Como quase sempre no R, se o programador desejar, é possível configurar a função para que ela mude seu comportamento padrão:
 
 ```{r eval=TRUE, echo=TRUE}
 escolaridade <- c(rep("S",5), rep("M",3), rep("F",2))
@@ -546,10 +546,10 @@ escolaridade <- factor(escolaridade, levels = c("S","M","F"))
 str(escolaridade)
 ```
 
-### Coleções heterogêneas
+## Coleções heterogêneas
 Coleções **heterogêneas** podem misturar elementos de diferentes tipos básicos.
 
-#### Listas
+### Listas
 Listas são coleções bastante flexíveis: podem abrigar qualquer combinação de objetos e seus tipos básicos, inclusive outras listas. É possível termos, por exemplo, uma lista com os seguintes **4** elementos: **1** vetor numérico, **1** matriz de caracteres, **1** (sub)lista com números e texto e **1** escalar (vetor unitário)! Vejamos:
 
 ```{r eval=TRUE, echo=TRUE}
@@ -597,7 +597,7 @@ names(lista)
 names(lista) <- c("NOME", "NOTA")
 ```
 
-#### Data Frames
+### Data Frames
 *Data frames* são casos particulares de listas onde os elementos são todos vetores do mesmo tamanho. Se imaginarmos os vetores componentes verticalizados e postos lado a lado, o data frame vai apresentar a mesma organização tabular de uma matriz, mas com a vantagem de poder reunir colunas com diferentes tipos básicos.  
 
 É intuitivo pensar que os data frames (ou pequenas variações deles) são as estruturas de dados do R que mais aparecem nos projetos, pelo seu formato tabular clássico que já conhecemos das planilhas eletrônicas: quando importamos dados de uma planilha com a função `read.csv()` (o que pode ser feito diretamente pela interface do [RStudio](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-the-RStudio-IDE)), o objeto criado no R com os dados é um data frame. Fato é que, independente da tecnologia utilizada, a forma tabular ainda é a forma o padrão de organizarmos dados estatísticos e de engenharia.
@@ -637,7 +637,7 @@ ncol(dat)	#Número de colunas
 summary(dat)
 ```
 
-### Dados faltantes - NA {#na}
+## Dados faltantes - NA
 Em um projeto real de análise de dados temos que lidar com dados faltantes. O símbolo `NA` - **Not Available** - é utilizado no R para representar explicitamente quando um dado está faltando em uma coleção. Por exemplo:
 
 ```{r eval=TRUE, echo=TRUE}
