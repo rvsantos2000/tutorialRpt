@@ -34,7 +34,7 @@ Abaixo, um exemplo de configuração que gostamos de fazer nas *Global Options*.
 
 ## Porque usamos linguagens de programação?
 A resposta simples é que elas nos dão mais **flexibilidade** que as planilhas ou qualquer outro software **enlatado**: 
-passamos a ter o poder de criar **programas de computador** para automatizar a solução de problemas **quaisquer**. Isso se dá através dos **algoritmos**.
+passamos a ter o poder de criar **programas de computador** para automatizar a solução de problemas. Isso se dá através dos **algoritmos**.
 
 Um **algoritmo** é um conjunto de instruções que realizam uma tarefa. Cada trecho de um programa poderia ser chamado de algoritmo, mas em geral damos destaque para os trechos que resolvem problemas **relevantes** de maneira **eficiente** (Bhargava, [Entendendo Algoritmos](https://www.google.com.br/books/edition/Entendendo_Algoritmos/HWewDgAAQBAJ?hl=pt-BR&gbpv=0)).
 
