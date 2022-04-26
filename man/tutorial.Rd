@@ -2,8 +2,11 @@
 \alias{tutorial}
 \title{R Tutorial in Portuguese}
 \usage{
-learnr::run_tutorial("tutorial", "tutorialRpt")
+tutorial()
 }
 \description{
-R Tutorial
+Rus R Tutorial with \{learnr\}
+}
+\examples{
+tutorialRpt::tutorial()
 }
