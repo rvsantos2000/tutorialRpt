@@ -70,7 +70,7 @@ Esses são os elementos essenciais de uma linguagem de programação:
 O R apresenta todos esses elementos e nós vamos ver cada um deles com detalhes ao longo deste material.
 
 ## O primeiro programa: Hello, world!
-No estudo das linguagens de programação é tradicional que o primeiro programa de um iniciante seja simplesmente escrever um texto simples na tela, algo como [**Hello, world!**](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program#Variations) 
+No estudo das linguagens de programação é tradicional que o primeiro programa de um iniciante seja simplesmente escrever um texto na tela, algo como [**Hello, world!**](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program#Variations) 
 
 Então vamos em frente: com ajuda do instrutor, use a **caixa de código** abaixo para escrever seu primeiro programa em R. Clique em **Run Code** para executar os comandos, clique em **Start Over** para limpar a caixa (o botão **Hint** traz uma dica para esse exercício).
 
