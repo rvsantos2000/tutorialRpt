@@ -380,7 +380,7 @@ dim(y)
 summary(y)
 ```
 
-**Tudo no R é no fundo um vetor**. Quando fazemos `x <- 5`, x é um vetor unidimensional de tamanho 1. Podemos confirmar isso usando a função `is.vector()`:
+**Tudo no R é no fundo um vetor**. Quando fazemos `x <- 5`, x é um vetor unidimensional de tamanho 1 e tipo `double()`. Podemos confirmar isso usando a função `is.vector()`:
 
 ```{r eval=TRUE, echo=TRUE}
 x <- 5
@@ -425,8 +425,10 @@ z <- seq(10)
 z
 z <- 1:10 
 z
+typeof(z)
 z <- seq(from = 1, to = 10, by = 0.1)
 z
+typeof(z)
 ```
 
 Observamos que vetores também podem ser criados sem elementos explícitos, usando a função `vector()` ou, mais diretamente, as funções `integer()`, `double()`,  `character()` ou `logical()`:
@@ -462,9 +464,6 @@ m <- matrix(x, nrow = 3, ncol = 3)
 m 
 m <- matrix(x, nrow = 3, ncol = 3, byrow = TRUE)
 m
-m <- 1:10
-dim(m) <- c(2,5)
-m
 x <- 1:3
 y <- 10:12
 cbind(x, y)
@@ -474,7 +473,7 @@ rbind(x, y)
 A forma de acessar elementos de matrizes é com o operador `[<linhas>, <colunas>]`. Por exemplo:
 
 ```{r eval=TRUE, echo=TRUE}
-x <- c(3,5,8)
+x <- 1:9
 m <- matrix(x, nrow = 3, ncol = 3)
 m
 m[3, 3]
@@ -564,33 +563,39 @@ Coleções **heterogêneas** podem misturar elementos de diferentes tipos básic
 * Data Frames
 
 ### Listas
-Listas são coleções bastante flexíveis: podem abrigar qualquer combinação de objetos e seus tipos básicos, inclusive outras listas. É possível termos, por exemplo, uma lista com os seguintes **4** elementos: **1** vetor numérico, **1** matriz de caracteres, **1** (sub)lista com números e texto e **1** escalar (vetor unitário)! Vejamos:
+Listas são coleções bastante flexíveis: podem abrigar qualquer combinação de objetos e seus tipos básicos, inclusive outras listas. Vejamos um exemplo simples:
 
 ```{r eval=TRUE, echo=TRUE}
-v1 <- c(1,2,3)
-m1 <- matrix("a",2,2)
-l1 <- list(1,2,3,"teste")
-e1 <- 10
-lista <- list(v1, m1, l1, e1)
-lista
-class(lista)
-typeof(lista)
+lista <- list(1, "a", TRUE, 1+4i)
 str(lista)
+typeof(lista)
 length(lista)
 dim(lista)
 ```
 
-Para acessar elementos de uma lista usamos (como uma das possibilidades) o operador `[[<índices>]]`:
+A maneira mais direta de acessarmos os elementos de uma lista é usando o operador `[[<índices>]]`. Perceba na execução do código abaixo a diferença entre os operadores `[[]]` e `[]`. 
 
 ```{r eval=TRUE, echo=TRUE}
 lista <- list(1, "a", TRUE, 1+4i)
 str(lista)
 lista[[4]]
-class(lista[[4]])
-class(lista[4])
+typeof(lista[[4]])
+typeof(lista[4])
 ```
 
-As listas podem ter seus elementos **nomeados**. Nesses casos, o acesso pode ser feito também com o operador `$`. Por exemplo:
+Seguindo para um exemplo mais complexo, é possível termos uma lista com os seguintes **4** elementos: **1** vetor numérico, **1** matriz de caracteres, **1** (sub)lista com números e texto e **1** escalar (vetor unitário)! Vejamos:
+
+```{r eval=TRUE, echo=TRUE}
+v1 <- c(1,2,3)
+m1 <- matrix("a",2,2)
+l1 <- list(c(1,2,3),"teste")
+e1 <- 10
+lista <- list(v1, m1, l1, e1)
+lista
+str(lista)
+```
+
+As listas podem ter seus elementos **nomeados**. Nesse caso, o acesso pode ser feito também com o operador `$`. Por exemplo:
 
 ```{r eval=TRUE, echo=TRUE}
 lista <- list(nome1 = 1, nome2 = "a", nome3 = TRUE, nome4 = 1+4i)
@@ -663,20 +668,22 @@ anyNA(x)
 As funções `is.na()` e `anyNA()`, entre outras, podem ajudar a identificar dados faltantes e assim permitir seu tratamento ou mesmo descarte antes de uma análise. 
 
 ## Scripts
-Saia momentaneamente do tutorial e volte para a interface do RStudio. Com ajuda do instrutor, reproduza o código de algum dos exercícios anteriores em um arquivo de **script** do R, como alternativa a digitação sequencial de instruções na linha de comando.
+Minimize momentaneamente o tutorial e abra uma nova instância do RStudio. Com ajuda do instrutor, reproduza o código de algum dos exercícios anteriores em um arquivo de **script** do R, como alternativa a digitação sequencial de instruções na linha de comando.
 
 ![](./www/document-outline.png){width=100%}
 
-([Fonte: RStudio Blog](https://www.rstudio.com/blog/rstudio-v1-4-preview-little-things/)). 
+[Fonte: RStudio Blog](https://www.rstudio.com/blog/rstudio-v1-4-preview-little-things/). 
 
 ## Comandos de condição
-Comandos de condição são os elementos de uma linguagem de programação que permitem que o mesmo programa seja executado de maneira diferente, dependendo se um conjunto de condições é atendido ou não. A forma clássica para reconhecermos se um conjunto de condições é ou não é atendido é usando os rótulos lógicos **VERDADEIRO** (`TRUE`) ou **FALSO** (`FALSE`).
+Comandos de condição são os elementos de uma linguagem de programação que permitem que o mesmo programa seja executado de maneira diferente, dependendo se um conjunto de condições é atendido ou não. Normalmente, para reconhecermos se um conjunto de condições é ou não é atendido, usamos os rótulos lógicos **VERDADEIRO** (`TRUE`) ou **FALSO** (`FALSE`).
 
 No R os principais comandos de condição são a combinação `if()...else()` e o `switch()`. As figuras a seguir ilustram em fluxograma o funcionamento desses comandos (Fonte: [Tutorialspoint](https://www.tutorialspoint.com/r/r_decision_making.htm)).
 
 |`if()...else()`|`switch()`|
 |---------------|----------|
 |![](./www/r_if_else_statement.jpg)|![](./www/r_switch_statement.jpg)|
+
+**Atenção:** O `else()` nem sempre precisa estar presente!
 
 Verifique agora o funcionamento prático dos comandos com as caixas de código abaixo. 
 
@@ -693,8 +700,23 @@ if(x == 1) {
 ```
 
 `switch()`
-```{r switch, exercise=TRUE}
+```{r switch1, exercise=TRUE}
 # Execute o código com diferentes valores de x...
+x <- "1"
+
+y <- switch(
+   x,
+   "1" = "Primeiro!",
+   "2" = "Segundo!",
+   "3" = "Terceiro!",
+   "4" = "Quarto!",
+   "Opção inválida!"
+)
+print(y)
+```
+
+```{r switch2, exercise=TRUE}
+# Versão "numérica" do switch()
 x <- 1
 
 y <- switch(
@@ -704,6 +726,7 @@ y <- switch(
    "Terceiro!",
    "Quarto!"
 )
+if (is.null(y)) {y <- "Opção inválida!"}
 print(y)
 ```
 
