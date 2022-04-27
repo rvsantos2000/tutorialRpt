@@ -135,7 +135,7 @@ As funcionalidades do R estão organizadas em **pacotes** (`packages`), isto é,
 rownames(installed.packages(priority="base"))
 ```
 
-Grande parte do poder do R vem dos muitos pacotes desenvolvidos pela sua comunidade de usuários. Por exemplo, para para executar este tutorial localmente precisamos instalar e carregar o pacote `learnr`. 
+Grande parte do poder do R vem dos muitos pacotes desenvolvidos pela sua comunidade de usuários. Por exemplo, para executar este tutorial localmente precisamos instalar e carregar o pacote `learnr`. 
 
 A forma padrão para você instalar um pacote no R é a seguinte ( certifique-se que você tem uma conexão com a internet):
 
@@ -148,6 +148,12 @@ Você precisa instalar o pacote apenas uma vez no seu sistema. Mas a cada **sess
 ```{r eval=FALSE, echo=TRUE}
 library("<nome do pacote>")
 require("<nome do pacote>")
+```
+
+Se por algum motivo precisar descarregar um pacote da memória, o comando é este:
+
+```{r eval=FALSE, echo=TRUE}
+detach("package:<nome do pacote>", unload=TRUE)
 ```
 
 **Obs.:** A instalação e o carregamento de pacotes, assim como diversas outras operações, como a importação de planilhas, também podem ser feitas diretamente pela interface do RStudio. 
@@ -270,7 +276,7 @@ Depois que você executou os seus primeiros comandos em R, vamos avançar um pou
 
 A atribuição é a forma padrão de criarmos **variáveis** (objetos) nos nossos programas, ou em termos mais técnicos, é a forma de criarmos espaços **nomeados** e **acessíveis** na memória do computador.
 
-Na caixa de código abaixo, incrementamos o programa "Hello, world!" para considerar a criação de uma variável com o texto que queremos imprimir. Experimente mudar o texto ou criar outros nomes de variável. **Dica:** você pode usar o atalho `Alt+-` para criar um operador de atribuição. 
+Na caixa de código abaixo, incrementamos o programa "Hello, world!" para considerar a criação de uma variável com o texto que queremos imprimir. Experimente mudar o texto ou criar outros nomes de variável. **Dica:** No RStudio, você pode usar o atalho `ALT+-` para criar um operador de atribuição.
 
 ```{r hello2, exercise=TRUE}
 texto1 <- "Hello, world!"
@@ -344,7 +350,12 @@ Antes de explorarmos a criação de **coleções** a partir dos tipos básicos, 
 |`rm()`|Deletar um objeto da memória
 
 ## Coleções homogêneas
-Entende-se por **homogênea** uma coleção cujos elementos são sempre do mesmo tipo básico.
+Entende-se por **homogênea** uma coleção cujos elementos são sempre do mesmo tipo básico. São coleções homogêneas:
+
+* Vetores
+* Matrizes
+* *Arrays*
+* Fatores
 
 ### Vetores
 Um vetor é uma coleção homogênea **1-D**. A forma mais direta de criar um vetor é através da função `c()`. Por exemplo:
@@ -547,7 +558,10 @@ str(escolaridade)
 ```
 
 ## Coleções heterogêneas
-Coleções **heterogêneas** podem misturar elementos de diferentes tipos básicos.
+Coleções **heterogêneas** podem misturar elementos de diferentes tipos básicos. São coleções heterogêneas:
+
+* Listas
+* Data Frames
 
 ### Listas
 Listas são coleções bastante flexíveis: podem abrigar qualquer combinação de objetos e seus tipos básicos, inclusive outras listas. É possível termos, por exemplo, uma lista com os seguintes **4** elementos: **1** vetor numérico, **1** matriz de caracteres, **1** (sub)lista com números e texto e **1** escalar (vetor unitário)! Vejamos:
@@ -1057,7 +1071,7 @@ cat("Resultado com pipe: ", y2)
 ## Resultado com pipe:  3.16227766016838
 ```    
 
-**Dica:** CTRL+SHIFT+M são as teclas de atalho para o operador `%>%`.
+**Dica:** No RStudio, as teclas CTRL+SHIFT+M servem de atalho para o operador `%>%`.
 
 O ideia de usar *pipes* é deixar o código mais fácil de ler. De maneira didática, podemos imaginar que o operador poderia ser substituído numa sequência de comandos pela locução **E DEPOIS**. Por exemplo: lê o vetor E DEPOIS soma seus elementos E DEPOIS tira a raiz E DEPOIS transforma em texto. 
 
