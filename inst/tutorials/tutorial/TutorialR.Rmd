@@ -50,9 +50,9 @@ Segue um exemplo de algoritmo em **pseudocódigo**.
 
 - Leia uma lista `L` de valores numéricos
 - Seja `maior` igual ao primeiro elemento de `L`
-- Para cada elemento `e` de `L`, do segundo até o último:
-    - Se `e` for maior do que `maior`:
-        - Faça `maior` igual a `e`
+- Para cada elemento `i` de `L`, do segundo até o último:
+    - Se `i` for maior do que `maior`:
+        - Faça `maior` igual a `i`
 - Retorne o valor de `maior`
 
 Aplique esse algoritmo **manualmente** na lista `{3; 7; 2; -1}` e veja se ele de fato encontra o maior valor. 
@@ -867,39 +867,39 @@ Além das funções que já vêm embutidas no R ou que podem ser importadas de p
 
 ```{r eval=TRUE, echo=TRUE}
 # Cria uma função para calcular uma sequência de quadrados
-calcular_quadrados <- function(a) {
+calcula_quadrados <- function(a) {
   s <- rep(NA, a)      
   for(i in 1:a) {
     s[i] <- i^2
   }
-  return(s) #Indica o ponto de retorno da função
+  return(s) # Indica o ponto de retorno da função
 }
 
 # Chama a função usando o valor 6 como argumento
-calcular_quadrados(6)
+calcula_quadrados(6)
 ```
 
-Se você chamar a função `calcular_quadrados()` **sem os argumentos** que ela espera receber, vai perceber um erro de execução momento em que a variável `a` for necessária no **corpo** da função. Mas é possível criar funções que minimizem esse problema, definindo valores *default* para seus argumentos:
+Se você chamar a função `calcula_quadrados()` **sem os argumentos** que ela espera receber, vai perceber um erro de execução no momento em que a variável `a` for necessária no **corpo** da função. Mas é possível criar funções que minimizem esse problema, definindo valores *default* para seus argumentos:
 
 ```{r eval=TRUE, echo=TRUE}
 # Cria uma função multiplicar 2 números (com valores default)
-multiplicar <- function(a = 0, b = 1) {
+multiplica <- function(a = 0, b = 1) {
    result <- a * b
    return(result)
 }
 
 # Chama a função usando diferentes combinações de argumentos
-multiplicar(6, 6)
-multiplicar(6)
-multiplicar(b=6)
-multiplicar(a=6, b=6)
-multiplicar()
+multiplica(6, 6)
+multiplica(6)
+multiplica(b=6)
+multiplica(a=6, b=6)
+multiplica()
 ```
 
-Na caixa de código abaixo, escreva a função `somar()` para somar dois números `a` e `b`. Teste seu uso com diferentes argumentos.
+Na caixa de código abaixo, escreva a função `soma()` para somar dois números `a` e `b`. Teste seu uso com diferentes argumentos.
 
 ```{r add-function, exercise=TRUE}
-somar <- function() {
+soma <- function() {
   
 }
 ```
@@ -907,26 +907,29 @@ somar <- function() {
 ### Rertorno nulo (NULL) 
 Pode acontecer de uma função não conseguir realizar a tarefa para a qual foi programada. Em muitos casos isso vai ocorrer  porque os argumentos recebidos não atenderam a alguns pré-requisitos: por exemplo, para multiplicar dois números não esperamos receber argumentos do tipo texto. 
 
-Nessa linha, é uma boa prática do programador fazer uma análise prévia dos argumentos sendo recebidos pela sua função. Em casos em que esses argumento estejam fora das especificações - ou em casos de qualquer outra falha no corpo da função - ele pode sinalizar ao usuário com uma mensagem de erro padronizada e usar a palavra [reservada](#pres) `NULL` (nulo) como retorno da função, usando o comando `return(NULL)`.
+Nessa linha, é uma boa prática do programador fazer uma análise prévia dos argumentos sendo recebidos pela sua função. Em casos em que esses argumentos estejam fora das especificações - ou em casos de qualquer outra falha no corpo da função - ele pode sinalizar ao usuário com uma mensagem de erro padronizada e usar a palavra [reservada](#pres) `NULL` (nulo) como retorno da função, usando o comando `return(NULL)`.
 
 ## Paradigmas de programação
 O **paradigma de programação** é a metodologia com a qual o programador organiza suas ideias e escreve seus programas. Algumas linguagens podem favorecer (ou impor) o uso de um determinado paradigma mas, na prática, os programas acabam usando mais de um paradigma ao mesmo tempo (isso ocorre no R!).
 
 Vamos considerar aqui dois grandes paradigmas: programação **funcional**, onde os programas são organizados preferencialmente em [**funções puras**](https://en.wikipedia.org/wiki/Pure_function), e programação **orientada a objetos** (POO), onde os programas são organizados preferencialmente em [**objetos**](https://en.wikipedia.org/wiki/Object-oriented_programming). 
 
-O R é essencialmente uma linguagem ligada ao paradigma funcional, mas também provê mecanismos de POO. Por exemplo, a característica de **polimorfismo** da orientação a objetos é o que faz com que a função `summary()` tenha resultados diferentes se a mesma entrada for tipificada como um vetor de caracteres ou como um fator:
+O R é essencialmente uma linguagem ligada ao paradigma funcional, mas também provê mecanismos de POO. Por exemplo, a característica de **polimorfismo** da orientação a objetos é o conceito em que a mesma função `summary()` tem comportamentos diferentes se o tipo de entrada for diferente:
 
 ```{r eval=TRUE, echo=TRUE}
-escolaridade <- c(rep("S",5), rep("M",3), rep("F",2))
-summary(escolaridade)
-escolaridade <- factor(escolaridade)
-summary(escolaridade)
+v1 <- c(rep("S",50), rep("M",30), rep("F",20))
+summary(escolaridade1)
+
+escolaridade2 <- factor(escolaridade1)
+summary(escolaridade2)
 ```
 
 Maiores detalhes sobre paradigmas de programação no R podem ser vistos no [*Advanced R*](https://adv-r.hadley.nz/) de Hadley Wickham.  
 
 ## Exercícios
-Agora que já passamos pelos elementos essenciais da linguagem, você pode tentar implementar algumas funções e algoritmos em R.
+Agora que já passamos pelos elementos essenciais da linguagem, você pode tentar implementar algumas funções e algoritmos em R. 
+
+**Atenção**: Alguns exercícios tem botão de dicas (**Hint**)!
 
 ### Exercício 1 - Médias
 Escreva a função `calcula_media()`, recebendo como argumentos:
@@ -941,7 +944,7 @@ No corpo da função avalie o seguinte:
 * Senão, retorne a **média aritmética** $(x+y)/2$.
 
 ```{r ex1, exercise=TRUE}
-calcula_media <- function() {
+calcula_media <- function(x, y, tipo_media = 0) {
 #SEU CÓDIGO AQUI
 }
 ```
@@ -951,15 +954,15 @@ Escreva a função `acha_maior()` para achar o maior elemento de um vetor. Ela d
 
 - Leia um vetor `vec` de valores numéricos
 - Seja `maior` igual ao primeiro elemento de `vec`
-- Para cada elemento `e` de `vec`, do segundo até o último:
-    - Se `e` for maior do que `maior`:
-        - Faça `maior` igual a `e`
+- Para cada elemento `i` de `vec`, do segundo até o último:
+    - Se `i` for maior do que `maior`:
+        - Faça `maior` igual a `i`
 - Retorne o valor de `maior`
 
 Teste sua função com o vetor `c(3, 7, 2, -1)` e veja se ela de fato acha o maior elemento. 
 
 ```{r ex2, exercise=TRUE}
-acha_maior <- function() {
+acha_maior <- function(vec) {
 #SEU CÓDIGO AQUI
 }
 ```
@@ -967,8 +970,8 @@ acha_maior <- function() {
 ### Exercício 3 - É par?
 Escreva a função `eh_par()` para identificar se um número é par ou ímpar. Ela deve implementar o seguinte algoritmo:
 
-- Leia um número inteiro `i`
-- Seja `r` o resto da divisão de `i` por `2`
+- Leia um número inteiro `n`
+- Seja `r` o resto da divisão de `n` por `2`
 - Se `r` for igual a `0`:
     - Retorne `TRUE`
 - Senão:
@@ -977,52 +980,52 @@ Escreva a função `eh_par()` para identificar se um número é par ou ímpar. E
 Teste sua função com números pares e ímpares. Ela deve retornar o valor lógico `TRUE` se o número for par. 
 
 ```{r ex3, exercise=TRUE}
-eh_par <- function() {
+eh_par <- function(n) {
 #SEU CÓDIGO AQUI
 }
 ```
 
 ```{r ex3-hint}
-i <- 9
-print(i%%2) #resto 1: ímpar
-i <- 8
-print(i%%2) #resto 0: par
+9 %% 2 # resto 1: ímpar
+8 %% 2 # resto 0: par
 ```
 
 ### Exercício 4 - Conta pares
 Escreva a função `conta_pares()` para contar os números pares em um vetor. Ela deve usar a função `eh_par()` do exercício anterior e implementar o seguinte algoritmo:
 
 - Leia um vetor `vec` de números inteiros 
-- Seja `c` igual a `0`
-- Para cada elemento `e` de `vec`, do primeiro ao último:
-    - Seja `p` o resultado de `eh_par(e)`
-    - Se `p` for `TRUE`:
-        - Adicione `1` ao valor de `c`
-- Retorne `c`
+- Seja `cont` igual a `0`
+- Para cada elemento `i` de `vec`, do primeiro ao último:
+    - Seja `result` o resultado de `eh_par(i)`
+    - Se `result` for `TRUE`:
+        - Adicione `1` ao valor de `cont`
+- Retorne `cont`
 
 Teste sua função com diferentes vetores de entrada.
 
 ```{r ex4, exercise=TRUE}
-conta_pares <- function() {
+eh_par <- function(n) {
+  ifelse (n %% 2 == 0, return(T), return(F)) 
+}
+conta_pares <- function(vec) {
 #SEU CÓDIGO AQUI
 }
 ```
 
 ### Exercício 5 - Fatorial
-Escreva a função `fatorial()` para calcular o fatorial de um número inteiro $N$. A função fatorial é definida como $N! = 1 \times 2 \times \cdots\times(N-1)\times N$.
+Escreva a função `fatorial()` para calcular o fatorial de um número inteiro $n$. A função fatorial é definida como $n! = 1 \times 2 \times \cdots\times(n-1)\times n$.
 
 ```{r ex5, exercise=TRUE}
-fatorial <- function() {
+fatorial <- function(n) {
 #SEU CÓDIGO AQUI
 }
 ```
 
 ```{r ex5-hint}
-N <- 5
+n <- 5
 p <- 1
-for (x in 1:N)
-    p <- p*x
-
+for (i in 1:n)
+    p <- p*i
 print(p)
 ```
 
@@ -1045,19 +1048,20 @@ Use sua função para calcular a raiz quadrada dos números abaixo, com tolerân
 | 42  | 6.480741   |
 
 ```{r ex6, exercise=TRUE}
-calcula_raiz <- function() {
+calcula_raiz <- function(n) {
 #SEU CÓDIGO AQUI
 }
 ```
 
 ```{r ex6-hint}
-num <- 42
+n <- 7
 tol <- 1e-6
-raiz <- num/2
+raiz <- n/2
 aprox_ruim <- TRUE
 while (aprox_ruim) {
-  raiz <- (raiz + num/raiz)/2
-  aprox_ruim <- (abs(raiz**2 - num) > tol)
+  raiz <- (raiz + n/raiz)/2
+  erro <- abs(raiz**2 - n)
+  aprox_ruim <- (erro > tol)
 }
 print(raiz)
 ```
