@@ -683,7 +683,7 @@ No R os principais comandos de condição são a combinação `if()...else()` e 
 |---------------|----------|
 |![](./www/r_if_else_statement.jpg)|![](./www/r_switch_statement.jpg)|
 
-**Atenção:** O `else()` nem sempre precisa estar presente!
+**Atenção:** O `else()` nem sempre precisa estar presente! É possível termos o `if()` sozinho e ainda há opção do comando `ifelse()` - aprenda sobre o funcionamento dele fazendo `?ifelse`.
 
 Verifique agora o funcionamento prático dos comandos com as caixas de código abaixo. 
 
@@ -1005,7 +1005,7 @@ Teste sua função com diferentes vetores de entrada.
 
 ```{r ex4, exercise=TRUE}
 eh_par <- function(n) {
-  ifelse (n %% 2 == 0, return(T), return(F)) 
+#SEU CÓDIGO AQUI
 }
 conta_pares <- function(vec) {
 #SEU CÓDIGO AQUI
