@@ -683,9 +683,9 @@ No R os principais comandos de condição são a combinação `if()...else()` e 
 |---------------|----------|
 |![](./www/r_if_else_statement.jpg)|![](./www/r_switch_statement.jpg)|
 
-**Atenção:** O `else()` nem sempre precisa estar presente! É possível termos o `if()` sozinho e ainda há opção do comando `ifelse()` - aprenda sobre o funcionamento dele fazendo `?ifelse`.
+**Atenção:** O `else()` nem sempre precisa estar presente. É possível termos uma sequência de comandos `if()` sozinhos e ainda há opção do comando `ifelse()`.
 
-Verifique agora o funcionamento prático dos comandos com as caixas de código abaixo. 
+Verifique agora o funcionamento prático dos comandos de condição com as caixas de código abaixo. 
 
 `if()...else()`
 ```{r if, exercise=TRUE}
@@ -866,10 +866,10 @@ D <- matrix(1:3, 3, 1)
 Além das funções que já vêm embutidas no R ou que podem ser importadas de pacotes adicionais, uma das grandes vantagens das linguagens de programação é a possibilidade de criarmos nossas próprias funções (e posteriormente organizá-las em nossos [próprios pacotes](#packs2) se assim desejarmos). Vejamos um exemplo:
 
 ```{r eval=TRUE, echo=TRUE}
-# Cria uma função para calcular uma sequência de quadrados
-calcula_quadrados <- function(a) {
-  s <- rep(NA, a)      
-  for(i in 1:a) {
+# Cria uma função para calcular uma sequência de n quadrados
+calcula_quadrados <- function(n) {
+  s <- rep(NA, n)      
+  for(i in 1:n) {
     s[i] <- i^2
   }
   return(s) # Indica o ponto de retorno da função
@@ -879,7 +879,7 @@ calcula_quadrados <- function(a) {
 calcula_quadrados(6)
 ```
 
-Se você chamar a função `calcula_quadrados()` **sem os argumentos** que ela espera receber, vai perceber um erro de execução no momento em que a variável `a` for necessária no **corpo** da função. Mas é possível criar funções que minimizem esse problema, definindo valores *default* para seus argumentos:
+Se você chamar a função `calcula_quadrados()` **sem os argumentos** que ela espera receber, vai perceber um erro de execução no momento em que a variável `n` for necessária no **corpo** da função. Mas é possível criar funções que minimizem esse problema, definindo valores *default* para seus argumentos:
 
 ```{r eval=TRUE, echo=TRUE}
 # Cria uma função multiplicar 2 números (com valores default)
@@ -912,16 +912,18 @@ Nessa linha, é uma boa prática do programador fazer uma análise prévia dos a
 ## Paradigmas de programação
 O **paradigma de programação** é a metodologia com a qual o programador organiza suas ideias e escreve seus programas. Algumas linguagens podem favorecer (ou impor) o uso de um determinado paradigma mas, na prática, os programas acabam usando mais de um paradigma ao mesmo tempo (isso ocorre no R!).
 
-Vamos considerar aqui dois grandes paradigmas: programação **funcional**, onde os programas são organizados preferencialmente em [**funções puras**](https://en.wikipedia.org/wiki/Pure_function), e programação **orientada a objetos** (POO), onde os programas são organizados preferencialmente em [**objetos**](https://en.wikipedia.org/wiki/Object-oriented_programming). 
+Vamos considerar aqui dois grandes paradigmas: programação [**funcional**](https://en.wikipedia.org/wiki/Functional_programming), onde os programas são decompostos em **funções** (*top-down*), e programação [**orientada a objetos**](https://en.wikipedia.org/wiki/Object-oriented_programming) (POO), onde os programas evoluem a partir da interação dos **objetos** existentes no problema (*bottom-up*). 
 
-O R é essencialmente uma linguagem ligada ao paradigma funcional, mas também provê mecanismos de POO. Por exemplo, a característica de **polimorfismo** da orientação a objetos é o conceito em que a mesma função `summary()` tem comportamentos diferentes se o tipo de entrada for diferente:
+O R é essencialmente uma linguagem ligada ao paradigma funcional, mas também provê mecanismos de POO. Por exemplo, o **polimorfismo** da orientação a objetos é o conceito em que a mesma função `summary()` tem comportamentos diferentes se o tipo do objeto de entrada for diferente:
 
 ```{r eval=TRUE, echo=TRUE}
-v1 <- c(rep("S",50), rep("M",30), rep("F",20))
-summary(escolaridade1)
+v <- c(rep("A",5), rep("B",3), rep("C",2))
+v
+summary(v)
 
-escolaridade2 <- factor(escolaridade1)
-summary(escolaridade2)
+v <- runif(10)
+v
+summary(v)
 ```
 
 Maiores detalhes sobre paradigmas de programação no R podem ser vistos no [*Advanced R*](https://adv-r.hadley.nz/) de Hadley Wickham.  
