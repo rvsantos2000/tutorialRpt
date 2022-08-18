@@ -619,7 +619,7 @@ names(lista) <- c("NOME", "NOTA")
 ### Data Frames
 *Data frames* são casos particulares de listas onde os elementos são todos vetores do mesmo tamanho. Se imaginarmos os vetores componentes verticalizados e postos lado a lado, o data frame vai apresentar a mesma organização tabular de uma matriz, mas com a vantagem de poder reunir colunas com diferentes tipos básicos.  
 
-É intuitivo pensar que os data frames (ou pequenas variações deles) são as estruturas de dados do R que mais aparecem nos projetos, pelo seu formato tabular clássico que já conhecemos das planilhas eletrônicas: quando importamos dados de uma planilha com a função `read.csv()` (o que pode ser feito diretamente pela interface do [RStudio](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-the-RStudio-IDE)), o objeto criado no R com os dados é um data frame. Fato é que, independente da tecnologia utilizada, a forma tabular ainda é a forma o padrão de organizarmos dados estatísticos e de engenharia.
+É intuitivo pensar que os data frames (ou pequenas variações deles) são as estruturas de dados do R que mais aparecem nos projetos, pelo seu formato tabular clássico que já conhecemos das planilhas eletrônicas: quando importamos dados de uma planilha com a função `read.csv()` (o que pode ser feito diretamente pela interface do [RStudio](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-the-RStudio-IDE)), o objeto criado no R com os dados é um data frame. Fato é que, independente da tecnologia utilizada, a forma tabular ainda é a forma padrão de organizarmos dados estatísticos e de engenharia.
 
 Criando um data frame manualmente:
 
